@@ -1,7 +1,7 @@
 # Teste da UAUBox
 Desafio Tech da UAU
 
-#Instalação
+# Instalação
 
 npm i < Irá trazer todas as dependências listadas no package.json
 
