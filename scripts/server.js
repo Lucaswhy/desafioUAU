@@ -17,9 +17,9 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.use((req, res, next) => {
-    req.header('Origin');
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', '*');
     app.use((0, cors_1.default)());
     next();
 });

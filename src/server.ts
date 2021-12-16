@@ -21,9 +21,10 @@ app.engine('html', require('ejs').renderFile)
 
 // Um middleware para caso seja necessário na utilização do Token
 app.use((req: Request, res: Response, next: NextFunction) => {
-  req.header('Origin')
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+  res.header('Access-Control-Allow-Headers', '*')
+
   app.use(cors())
   next()
 })

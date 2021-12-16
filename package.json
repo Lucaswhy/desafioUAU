@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "tsc": "tsc --watch",
-    "start": "tsc && cd scripts && node server.js",
+    "start": "cd scripts && node server.js",
     "dev": "cd scripts && nodemon server.js",
     "lint": "eslint --ext .ts --ignore-path .gitignore ."
   },
