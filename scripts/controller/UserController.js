@@ -183,6 +183,32 @@ class UserController {
             }
         });
     }
+    init(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const randomString = crypto_1.default.randomBytes(20).toString('hex');
+            yield user_1.default.create({
+                name: 'Administrador da Uaubox',
+                email: 'administrador@uaubox.com.br',
+                password: '123456'
+            }).then(user => {
+                UserInfo_1.default.create({
+                    cpf: '25304359011',
+                    birthdate: '2010-01-01',
+                    phone: '11947852134',
+                    address: 'R. São Marinho Gonçalves, 514 Sorocaba SP',
+                    UserInfo_id: user.id
+                });
+                const token = jsonwebtoken_1.default.sign({ user_id: user.id, email: user.email, name: user.name }, randomString, {
+                    expiresIn: '5h'
+                });
+                user_1.default.update({ token: token }, { where: { email: user.email } });
+            });
+            return res.status(200).json({
+                error: false,
+                data: 'Usuário criado com sucesso!'
+            });
+        });
+    }
 }
 exports.default = new UserController();
 //# sourceMappingURL=UserController.js.map

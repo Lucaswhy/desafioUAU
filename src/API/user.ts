@@ -16,4 +16,6 @@ route.delete('/api/user/:email', UserController.softDelete)
 
 route.post('/validate', UserController.validate)
 
+route.post('/init', UserController.init)
+
 export default route

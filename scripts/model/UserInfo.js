@@ -32,7 +32,8 @@ UserInfo.init({
         unique: true
     },
     birthdate: sequelize_1.default.DATE,
-    phone: sequelize_1.default.STRING
+    phone: sequelize_1.default.STRING,
+    address: sequelize_1.default.STRING
 }, { sequelize: database_1.default });
 exports.default = UserInfo;
 //# sourceMappingURL=UserInfo.js.map

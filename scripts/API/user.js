@@ -11,5 +11,6 @@ route.get('/api/user/:id', UserController_1.default.selectOne);
 route.post('/api/user/', UserController_1.default.create);
 route.delete('/api/user/:email', UserController_1.default.softDelete);
 route.post('/validate', UserController_1.default.validate);
+route.post('/init', UserController_1.default.init);
 exports.default = route;
 //# sourceMappingURL=user.js.map

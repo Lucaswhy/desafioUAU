@@ -192,6 +192,37 @@ class UserController {
       })
     }
   }
+
+  public async init (req: Request, res: Response): Promise<Response> {
+    const randomString : any = crypto.randomBytes(20).toString('hex')
+    await User.create({
+      name: 'Administrador da Uaubox',
+      email: 'administrador@uaubox.com.br',
+      password: '123456'
+    }).then(user => {
+      UserInfo.create({
+        cpf: '25304359011',
+        birthdate: '2010-01-01',
+        phone: '11947852134',
+        address: 'R. São Marinho Gonçalves, 514 Sorocaba SP',
+        UserInfo_id: user.id
+      })
+      // Criando o token
+      const token = jwt.sign(
+        { user_id: user.id, email: user.email, name: user.name },
+        randomString,
+        {
+          expiresIn: '5h'
+        }
+      )
+      User.update({ token: token }, { where: { email: user.email } })
+    })
+
+    return res.status(200).json({
+      error: false,
+      data: 'Usuário criado com sucesso!'
+    })
+  }
 }
 
 export default new UserController()

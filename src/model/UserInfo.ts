@@ -17,7 +17,8 @@ UserInfo.init({
     unique: true
   },
   birthdate: Sequelize.DATE,
-  phone: Sequelize.STRING
+  phone: Sequelize.STRING,
+  address: Sequelize.STRING
 }, { sequelize: database })
 
 export default UserInfo
