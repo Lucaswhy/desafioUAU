@@ -7,6 +7,7 @@ class Me extends React.Component{
         this.state = {user:{
             error: false,
             isLoaded: false,
+            isDeleted: true,
             items: {
                 name:'',
                 email:'',
@@ -18,7 +19,9 @@ class Me extends React.Component{
      };
     }
 
+    //Realizar a montagem do usuário
     async componentDidMount() {
+      //Aqui está em estático o usuário que irá aparecer na tela através da requisição get, caso queria mudar, é só mudar o id no final de '1' para o id desejável.
      await axios.get(`http://localhost:8084/api/user/1`)
           .then(res =>{
               this.setState({
@@ -34,13 +37,29 @@ class Me extends React.Component{
           });
     }
 
-    
+    //Deletar o usuário (Soft-delete)
+    async deleteUser() {
+        await axios.delete(`http://localhost:8084/api/user/`+this.state.items.email)
+        .then(res =>{
+            this.setState({
+              error: false,
+              isDeleted: true
+             })
+          },(error) => {
+            this.setState({
+                isLoaded: true,
+                error: error,
+            });
+          });
+    }
+
     render(){
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, items, isDeleted } = this.state;
         if(error === true)  return <span className='formulario_erro'>Error: Ocorreu um erro, tente novamente mais tarde! :( </span>
-            else if (!isLoaded) {
-                return <div className='user'><h1>Carregando seus dados!</h1></div>;
-            }else{
+        else if (isDeleted) return <h1>Usuário deletado!</h1>
+        else if (!isLoaded) {
+            return <div className='user'><h1>Carregando seus dados!</h1></div>;
+        }else{
             const date = items.birthdate.toString().slice(0, 10);
         return(
             <div className='user'>
@@ -50,6 +69,8 @@ class Me extends React.Component{
                 <p><strong>Data de Nascimento: </strong>{date}</p>
                 <p><strong>Celular: </strong>{items.phone}</p>
                 <p><strong>Endereço: </strong>{items.address}</p>
+            
+                <button className='btn btn-danger mt-4' onClick={()=> this.deleteUser()}>Deletar Usuário</button>
             </div>
             )
         }

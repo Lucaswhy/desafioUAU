@@ -95,12 +95,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
     .login__input{
       width: 250px;
+      margin-bottom: 10px;
     }
     .login__button{
-      width: 200px;
-      margin-top: 20px;
+    }
+    .login__erro{
+      margin-top: 10px;
+      color: red;
+    }
+    .login__sucesso{
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .login__token{
+      word-break: break-all;
     }
 }
 

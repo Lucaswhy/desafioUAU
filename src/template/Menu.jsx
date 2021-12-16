@@ -7,6 +7,7 @@ class Menu extends React.Component{
         this.state = {dropdown: false};
       }
 
+      //Dropdown do menu, falso esconde, true desce.
     render(){
         return(
             <div className="container-fluid">
