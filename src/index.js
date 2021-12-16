@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './assets/css/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import Template from './template/Template'
+import Menu from './template/Menu'
+import Footer from './template/Footer'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Menu/>
+    <Template/>
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );

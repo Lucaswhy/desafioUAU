@@ -1,0 +1,133 @@
+#body {
+  background-color: #f1f1c1 ;
+}
+
+//CSS referente ao "menu"
+.menu {
+  background-color: #f59b71;
+  color: white;
+  font-size: 1.2em;
+  height: 50px;
+  width: 150px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .menu__item{
+    background-color: #f59b71;
+    font-size: 1em;
+    align-items: center;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    width: 150px;
+    padding: 0;
+    a{
+      width: 100%;
+      text-decoration: none;
+      color: white;
+    }
+    a:hover{
+      background-color: #ff7474;
+      width: 100%;
+    }
+  }
+  .menu__item:hover{
+  }
+
+}
+
+//CSS referente ao "footer"
+.footer{
+  color: #f59b71;
+  position: absolute;
+  top: 100vh;
+  border-top: 1px solid #c7c77f;
+  width: 100%;
+}
+
+//CSS referente a "home"
+.home{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  
+  .home__texto{
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+//CSS referente a "home" media para diminuir tamanho das fontes
+@media only screen and (max-width: 992px){
+  .home{
+    font-size: 0.8em;
+  }
+}
+
+//CSS referente ao "signin" sobre os formularios
+.formulario{
+    display: flex;
+    flex-direction: column;
+    .formulario__input{
+      width: 250px;
+    }
+    .formulario__button{
+      width: 200px;
+      margin-top: 10px;
+      align-self: center;
+    }
+    .formulario__erro{
+      color: red;
+    }
+}
+
+//CSS referente ao "signin" sobre os formularios
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .login__input{
+      width: 250px;
+    }
+    .login__button{
+      width: 200px;
+      margin-top: 20px;
+    }
+}
+
+//CSS referente ao "me" para mostrar as informações do usuário
+.user{
+  margin-top: 20px;
+  padding-bottom: 10%;
+  height: 100%;
+  width: 50%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  p{
+    font-size: 20px;
+    text-align: left;
+    margin-left: 15px;
+    padding-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 992px){
+  .user{
+    p{
+      font-size: 16px;
+    }
+  }
+}
